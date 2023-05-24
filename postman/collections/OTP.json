@@ -13,7 +13,116 @@
 		},
 		{
 			"name": "Phone number",
-			"item": [],
+			"item": [
+				{
+					"name": "send-OTP",
+					"id": "58c565d3-902f-4c73-8fcc-17847001a66d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{UserOTP}}/sendOTP",
+							"host": [
+								"{{UserOTP}}"
+							],
+							"path": [
+								"sendOTP"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "28d2409d-2ae2-4fac-9974-71dd551c07d6",
+							"name": "send-OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"f0ac57bd-6a27-4b70-8a73-fb60865dc0a9\",\r\n    \"phone\": \"+254703605544\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UserOTP}}/sendOTP",
+									"host": [
+										"{{UserOTP}}"
+									],
+									"path": [
+										"sendOTP"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-A208HEBIBva55lRiIVzkfpsQ7rI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 May 2023 08:12:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"OTP sent to +254703605544 the code is 5244\"\n}"
+						}
+					]
+				},
+				{
+					"name": "verify-OTP",
+					"id": "834b049b-4759-49c1-a5bf-d271b5e6bc3f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{OTP}}/VerifyOTP",
+							"host": [
+								"{{OTP}}"
+							],
+							"path": [
+								"VerifyOTP"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "e3f0db40-b362-47e1-abfa-68053221cea0"
 		}
 	]
