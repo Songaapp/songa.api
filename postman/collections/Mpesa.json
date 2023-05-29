@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "348809f5-bef6-4fb0-9ddd-f108e3739238",
+		"name": "Mpesa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27487713-348809f5-bef6-4fb0-9ddd-f108e3739238"
+	},
+	"item": [
+		{
+			"name": "Payment Validation",
+			"id": "bbda324d-005e-4ed1-b166-5a09c2eff93a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{internet_host}}/api/points/confirmation",
+					"host": [
+						"{{internet_host}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"confirmation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment Coonfirmation",
+			"id": "264b8efb-b50a-4156-b89b-21f221b1ace8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{internet_host}}/api/points/confirmation",
+					"host": [
+						"{{internet_host}}"
+					],
+					"path": [
+						"api",
+						"points",
+						"confirmation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
