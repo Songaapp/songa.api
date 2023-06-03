@@ -8,165 +8,7 @@
 	"item": [
 		{
 			"name": "Email",
-			"item": [
-				{
-					"name": "Email confirmation",
-					"id": "97c036cd-f463-4a86-b00a-b2cf4c50dab9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/api/users/customer_agent/verify/44d5cc67-9e18-422f-a3bc-deba880d640d/4ee766c44deed5e0a2f8f2cc9b435b8a/",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"customer_agent",
-								"verify",
-								"44d5cc67-9e18-422f-a3bc-deba880d640d",
-								"4ee766c44deed5e0a2f8f2cc9b435b8a",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "4c5e8c37-7e0b-4f1a-a7ba-12795ab19704",
-							"name": "Invalid link",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/api/users/customer_agent/verify/449cceb0-3596-4680-83b3-c8681fb58359o/:token",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"users",
-										"customer_agent",
-										"verify",
-										"449cceb0-3596-4680-83b3-c8681fb58359o",
-										":token"
-									],
-									"variable": [
-										{
-											"key": "token",
-											"value": null
-										}
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "html",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "text/html; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "12"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"c-Oq6utuw/gVRQbOGLMzUxwnXcsDU\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 29 May 2023 10:08:07 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "Invalid link"
-						},
-						{
-							"id": "d4f5122f-3960-4ce0-a36c-7ac28e97ad4c",
-							"name": "Successful user email confirmation",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/api/users/customer_agent/verify/44d5cc67-9e18-422f-a3bc-deba880d640d/4ee766c44deed5e0a2f8f2cc9b435b8a/",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"users",
-										"customer_agent",
-										"verify",
-										"44d5cc67-9e18-422f-a3bc-deba880d640d",
-										"4ee766c44deed5e0a2f8f2cc9b435b8a",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "html",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "text/html; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "27"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1b-9nIUX86xp0fA/uVy3kIMHZ2fe14\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 29 May 2023 10:13:51 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "email verified successfully"
-						}
-					]
-				}
-			],
+			"item": [],
 			"id": "6d58a8dd-d95c-4cc9-9635-9fb31ed4af60"
 		},
 		{
@@ -181,6 +23,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"cb2e6385-e39d-4e23-b0b3-5464057a5430\",\r\n    \"phone\": \"+254703605544\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{UserOTP}}/sendOTP",
 							"host": [
@@ -268,17 +119,92 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"f0ac57bd-6a27-4b70-8a73-fb60865dc0a9\",\r\n    \"phone\": \"+254703605544\",\r\n    \"code\": \"2492\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{OTP}}/VerifyOTP",
+							"raw": "{{UserOTP}}/verifyOTP",
 							"host": [
-								"{{OTP}}"
+								"{{UserOTP}}"
 							],
 							"path": [
-								"VerifyOTP"
+								"verifyOTP"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"id": "25969ae9-4048-4b27-9b9b-2da7347514c5",
+							"name": "verify-OTP",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"f0ac57bd-6a27-4b70-8a73-fb60865dc0a9\",\r\n    \"phone\": \"+254703605544\",\r\n    \"code\": \"2492\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UserOTP}}/verifyOTP",
+									"host": [
+										"{{UserOTP}}"
+									],
+									"path": [
+										"verifyOTP"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29-NqxvEK7hTu6PZjOgGAuPTxzz/fM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 May 2023 07:04:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"OTP code has been verified.\"\n}"
+						}
+					]
 				}
 			],
 			"id": "e3f0db40-b362-47e1-abfa-68053221cea0"
