@@ -1,0 +1,22 @@
+{
+	"info": {
+		"_postman_id": "a931818e-eeb4-46b8-afb8-5b7367a4efc8",
+		"name": "Rides",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27395215-a931818e-eeb4-46b8-afb8-5b7367a4efc8"
+	},
+	"item": [
+		{
+			"name": "request ride",
+			"id": "1d2b88fe-ec13-4ab9-8828-54ead738e166",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

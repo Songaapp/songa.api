@@ -12,6 +12,7 @@ rootDirectory = postman/collections
 files[] = {"id":"27280215-2f1f30fb-a6b3-45d2-9f73-8134296e6b54","path":"Auth.json","metaData":{}}
 files[] = {"id":"27487713-348809f5-bef6-4fb0-9ddd-f108e3739238","path":"Mpesa.json","metaData":{}}
 files[] = {"id":"27280215-3583a3c3-c25f-4d0e-8cc5-febcb873422d","path":"OTP.json","metaData":{}}
+files[] = {"id":"27395215-a931818e-eeb4-46b8-afb8-5b7367a4efc8","path":"Rides.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
