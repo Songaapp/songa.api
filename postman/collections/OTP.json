@@ -25,7 +25,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"cb2e6385-e39d-4e23-b0b3-5464057a5430\",\r\n    \"phone\": \"+254703605544\"\r\n}",
+							"raw": "{\r\n    \"id\": \"8540ca62-ca68-48b4-9f40-226d85ce5eb1\",\r\n    \"phone\": \"+254757478812\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -33,11 +33,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{UserOTP}}/sendOTP",
+							"raw": "{{host}}/api/users/auth/OTP/sendOTP",
 							"host": [
-								"{{UserOTP}}"
+								"{{host}}"
 							],
 							"path": [
+								"api",
+								"users",
+								"auth",
+								"OTP",
 								"sendOTP"
 							]
 						}
@@ -121,7 +125,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"f0ac57bd-6a27-4b70-8a73-fb60865dc0a9\",\r\n    \"phone\": \"+254703605544\",\r\n    \"code\": \"2492\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"8540ca62-ca68-48b4-9f40-226d85ce5eb1\",\r\n    \"phone\": \"+254757478812\",\r\n    \"code\": \"4587\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -129,11 +133,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{UserOTP}}/verifyOTP",
+							"raw": "{{host}}/api/users/auth/OTP/verifyOTP",
 							"host": [
-								"{{UserOTP}}"
+								"{{host}}"
 							],
 							"path": [
+								"api",
+								"users",
+								"auth",
+								"OTP",
 								"verifyOTP"
 							]
 						}
