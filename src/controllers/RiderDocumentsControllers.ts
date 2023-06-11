@@ -1,5 +1,5 @@
 import { PrismaClient, Rider, RiderDocuments } from "@prisma/client";
-//import { checkRider } from "../helpers/user";
+import { checkRider } from "../helpers/user";
 import { Response, Request } from "express";
 import { CheckRiderResult, checkRider } from "../helpers/user";
 import { UploadResult, UploadToCloudinary } from "../helpers/Cloudinary";
