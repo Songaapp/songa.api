@@ -1,7 +1,7 @@
 import express from 'express';
 import {
-	MpesaConfirmation,
-	MpesaValidation,
+  MpesaConfirmation,
+  MpesaValidation,
 } from '../controllers/MpesaPaymentController';
 
 const router = express.Router();
