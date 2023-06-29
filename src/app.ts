@@ -19,12 +19,16 @@ app.use(
 );
 app.use(cors());
 //routes
+
+
 app.use("/api/users/auth", UserAuthRoutes);
 app.use("/api/riders/auth", RiderAuthRoutes);
 app.use("/api/riders/profile/", RiderProfileRoutes);
 app.use("/api/points", mpesaRoutes);
 app.use("/api/users/auth/OTP", UserOTPRoutes);
 app.use("/api/users/customer_agent", CustomerCareAgentRoutes);
-
+app.get("/api/", (req: Request, res: Response) => {
+    res.send("test route...");
+});
 
 export default app;
