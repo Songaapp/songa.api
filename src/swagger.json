@@ -47,6 +47,7 @@
     },
     "/api/rides/location": {
       "get": {
+        "tags": ["Customer Care Agent"],
         "description": "",
         "parameters": [],
         "responses": {
