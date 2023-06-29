@@ -32,7 +32,7 @@ export const UserPasswordChange = async (req: Request, res: Response) => {
   //check auth token
   const token = userExists.user?.sessionToken as string;
   const isTokenValid = await VerifyToken(token);
-  console.log(isTokenValid);
+  
   if (!isTokenValid) {
     res.status(401).json({
       message:
@@ -49,7 +49,7 @@ export const UserPasswordChange = async (req: Request, res: Response) => {
     password,
     passwordHashed,
   });
-  console.log(isPasswordsMatching);
+  
   if (!isPasswordsMatching) {
     res.json({
       message:
@@ -60,7 +60,7 @@ export const UserPasswordChange = async (req: Request, res: Response) => {
   //check whether new password is equal to old password
   password = newPassword;
   const isSamePassword = await DecryptPassword({ password, passwordHashed });
-  console.log(isSamePassword, 'is same pass');
+ 
   if (isSamePassword) {
     res
       .status(400)
@@ -77,7 +77,7 @@ export const UserPasswordChange = async (req: Request, res: Response) => {
         salt: newPasswordHashed.salt,
       },
     });
-    console.log(updatedUser);
+
     res.status(400).json({ message: 'Password updated successfully.' });
   } catch (err) {
     res.status(400).json({ message: 'Something went wrong. Please try again' });
@@ -104,7 +104,7 @@ export const UserPasswordReset = async (req: Request, res: Response) => {
     //check auth token
     const token = userExists.user?.sessionToken as string;
     const isTokenValid = await VerifyToken(token);
-    console.log(isTokenValid);
+    
     if (!isTokenValid) {
       res.status(401).json({
         message:
