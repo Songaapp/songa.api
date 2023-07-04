@@ -133,6 +133,23 @@ model RiderDocuments{
   @@map("rider_documents")
 
 }
+
+//trips
+//model Trip {
+  //id
+  //customer
+  //rider
+  //pickup point
+  //destination
+  //----estimated charge
+  //starting time
+  //ending time
+  //status
+  //current location
+  //duration-calculated.
+  //total cost- songa points deducted.
+  
+//}
 model CustomerCareAgent {
   first_name    String
   last_name     String

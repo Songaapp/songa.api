@@ -5,10 +5,28 @@
     "description": "API documentation for Songa App",
     "version": "0.0.1"
   },
+  "servers": [
+    {
+      "url": "http://songa-api.onrender.com/api-docs",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:3000/api-docs",
+      "description": "Staging server"
+    }
+  ],
   "tags": [
+    {
+      "name": "User Journey",
+      "description": "Endpoints for Users."
+    },
     {
       "name": "Customer Care Agent",
       "description": "Endpoints for customer care agents"
+    },
+    {
+      "name": "Rides",
+      "description": "Endpoints for Rides."
     }
   ],
   "paths": {
@@ -45,9 +63,57 @@
         }
       }
     },
+    "/api/users/auth/create-user-account": {
+      "post": {
+        "tags": ["User Journey"],
+        "summary": "All user endpoints",
+        "description": "Create user, delete user, update user, get user profile",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/auth/login-user": {
+      "post": {
+        "tags": ["User Journey"],
+        "summary": "All user endpoints",
+        "description": "Create user, delete user, update user, get user profile",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/rides/location": {
-      "get": {
-        "description": "",
+      "post": {
+        "tags": ["Rides"],
+        "summary": "Get ride location",
+        "description": "Retrieve the location of a ride",
         "parameters": [],
         "responses": {
           "200": {
@@ -85,6 +151,40 @@
           "id": {
             "type": "string",
             "example": "jsjfjjdDennis4685h%62"
+          }
+        }
+      },
+      "UserCreation": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "example": "Martin"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "Fukuswi"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+254700300309"
+          },
+          "password": {
+            "type": "string",
+            "example": "Martinfukuswi"
+          }
+        }
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "example": "+254700300309"
+          },
+          "password": {
+            "type": "string",
+            "example": "Martinfukuswi"
           }
         }
       }
