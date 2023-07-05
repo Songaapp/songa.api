@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import s2 from '@radarlabs/s2';
-import { AsyncLocalStorage } from 'node:async_hooks';
+import app from '../app';
 
 const GetUserLatLong = (userId: string, LongLat: [number, number]) => {
   return [
     userId,
-    new s2.CellId(new s2.LatLng(LongLat[1], LongLat[0])).parent(9),
+    new s2.CellId(new s2.LatLng(LongLat[1], LongLat[0])).parent(10),
   ];
 };
 
@@ -18,8 +18,8 @@ const riders: Array<Array<any>> = [
 ];
 
 export const GeoHarsh = (req: Request, res: Response) => {
-  let ridersArray = [];
-  ridersArray = riders.map((item): any => GetUserLatLong(item[0], item[1]));
+  // let ridersArray = [];
+  let ridersArray = riders.map((item): any => GetUserLatLong(item[0], item[1]));
   let groups: any = {}; // Initialize groups as an empty object
   ridersArray.forEach(([userId, cellId]) => {
     const group = groups[cellId.token()] || [];
@@ -40,8 +40,40 @@ export const GeoHarsh = (req: Request, res: Response) => {
   return res.status(200).json(closePoints);
 };
 
-export const RiderPostLocation = (req: Request, res: Response) => {};
-export const UserGetNearbyRides = (req: Request, res: Response) => {};
+export const RiderPostLocation = (req: any, res: Response) => {
+  if (typeof app.locals.groups == 'undefined') {
+    app.locals.groups = {};
+  }
+  const { latitude, longitude } = req.body;
+  const rider_cell_id = new s2.CellId(new s2.LatLng(latitude, longitude))
+    .parent(11)
+    .token();
+  const group = app.locals.groups[rider_cell_id] || new Set();
+  group.add(req.payload.id);
+  app.locals.groups[rider_cell_id] = group;
+  // console.log(app.locals.groups);
+  return res.status(200).json(app.locals.groups);
+};
+
+export const UserGetNearbyRides = (req: Request, res: Response) => {
+  if (typeof app.locals.groups == 'undefined') {
+    app.locals.groups = {};
+  }
+  const { latitude, longitude } = req.body;
+  const customer_point_s2 = new s2.CellId(
+    new s2.LatLng(latitude, longitude)
+  ).parent(11);
+  console.log(app.locals.groups);
+  const close_rider_points = app.locals.groups[customer_point_s2.token()];
+  // console.log(closePoints); // [ 'user3' ]
+  if (!close_rider_points) {
+    return res.status(404).json({ message: 'No riders found' });
+  }
+  return res.status(200).json({
+    message: 'Riders found',
+    location: Array.from(close_rider_points),
+  });
+};
 export const UserRequestRide = (req: Request, res: Response) => {};
 export const RiderGetRequestedRides = (req: Request, res: Response) => {};// websockets
 export const RiderAcceptRide = (req: Request, res: Response) => {};//websockets

@@ -9,6 +9,10 @@
     {
       "name": "Customer Care Agent",
       "description": "Endpoints for customer care agents"
+    },
+    {
+      "name": "Ride",
+      "description": "Endpoints for ride matching"
     }
   ],
   "paths": {
@@ -45,14 +49,34 @@
         }
       }
     },
-    "/api/rides/location": {
-      "get": {
-        "tags": ["Customer Care Agent"],
-        "description": "",
-        "parameters": [],
+    "/api/rides/rider-post-locations/": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["Ride"],
+        "description": "All available riders should post their locations here",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FreeRiderLocation"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FreeRiderLocation"
+                }
+              }
+            }
           }
         }
       }
@@ -88,6 +112,24 @@
             "example": "jsjfjjdDennis4685h%62"
           }
         }
+      },
+      "FreeRiderLocation": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "integer"
+          },
+          "longitude": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
