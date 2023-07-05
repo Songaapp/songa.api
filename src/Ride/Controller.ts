@@ -23,7 +23,7 @@ export const RiderPostLocation = async (req: any, res: Response) => {
       .parent(11)
       .token();
     const group = app.locals.groups[rider_cell_id] || new Set();
-    // group.add(req.payload.id);
+    group.add(res.locals.payload.id);
     app.locals.groups[rider_cell_id] = group;
     return res
       .status(200)
@@ -48,7 +48,6 @@ export const UserGetNearbyRides = async (req: Request, res: Response) => {
   const customer_point_s2 = new s2.CellId(
     new s2.LatLng(latitude, longitude)
   ).parent(11);
-  console.log(app.locals.groups);
   const close_rider_points = app.locals.groups[customer_point_s2.token()];
   if (!close_rider_points) {
     return res.status(404).json({ message: 'No riders found' });

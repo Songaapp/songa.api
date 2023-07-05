@@ -277,7 +277,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FreeRiderLocation"
+                  "$ref": "#/components/schemas/RiderLocations"
                 }
               }
             }
@@ -447,6 +447,23 @@
           "longitude": {
             "type": "integer"
           }
+        }
+      },
+      "RiderLocations": {
+        "type": "object",
+        "properties": {
+          "message":{
+            "type": "string"
+          },
+          "locations": {
+
+            "latitude": {
+              "type": "integer"
+            },
+            "longitude": {
+              "type": "integer"
+            }
+          
         }
       }
     },
