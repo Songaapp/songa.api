@@ -8,7 +8,7 @@ import RiderAuthRoutes from './Riders/routes/RiderAuthRoutes';
 import mpesaRoutes from './routes/mpesaRoutes';
 import swaggerDocument from './swagger.json';
 import UserOTPRoutes from './routes/userOTPRoutes';
-import RiderRoutes from './Ride/Routes';
+//import RiderRoutes from './Ride/Routes';
 import RiderProfileRoutes from './Riders/routes/RiderProfileRoutes'
 
 const app: Express = express();
