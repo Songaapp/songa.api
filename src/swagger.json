@@ -452,26 +452,24 @@
       "RiderLocations": {
         "type": "object",
         "properties": {
-          "message":{
+          "message": {
             "type": "string"
           },
-          "locations": {
 
-            "latitude": {
-              "type": "integer"
-            },
-            "longitude": {
-              "type": "integer"
-            }
-          
+          "latitude": {
+            "type": "integer"
+          },
+          "longitude": {
+            "type": "integer"
+          }
         }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+      },
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
       }
     }
   }
