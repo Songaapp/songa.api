@@ -252,6 +252,38 @@
           }
         }
       }
+    },
+    "/api/rides/user-get-nearby-riders/": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["Rides"],
+        "description": "Users should get locations from here",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FreeRiderLocation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FreeRiderLocation"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
