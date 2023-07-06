@@ -42,6 +42,7 @@ model User {
   sessionToken String? 
   id           String    @id @default(uuid())
   OTP UserOTP?
+  Trips Trip[]
 
   @@map("users")
 }
@@ -71,6 +72,7 @@ model Rider {
   updatedAt    DateTime?
   id           String    @id @default(uuid())
   profile RiderProfile?
+  Trips Trip[]
   @@map("riders")
 }
 
@@ -179,4 +181,43 @@ model CustomerCareAgentResetToken {
   id     String            @id @default(uuid())
 
   @@map("customer_care_agent_reset_token")
+}
+//trips
+//model Trip {
+  //id
+  //customer
+  //rider
+  //pickup point
+  //destination
+  //----estimated charge
+  //starting time
+  //ending time
+  //status
+  //current location
+  //duration-calculated.
+  //total cost- songa points deducted.
+  
+//}
+enum TripStatus {
+  PENDING
+  ENROUTE
+  COMPLETED
+}
+model Trip{
+  id String @unique @id @default(uuid())
+  pickupPoint String
+  Destination String
+  status TripStatus
+  startTime DateTime
+  endingTime DateTime
+  //estimatedDuration Int
+  durationTaken Int 
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  riderId String
+  rider Rider @relation(fields: [riderId], references: [id], onDelete: Cascade)
+  currentLocation String
+  
+
+  @@map("trips")
 }
