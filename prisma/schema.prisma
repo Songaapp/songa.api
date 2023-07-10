@@ -201,23 +201,35 @@ model CustomerCareAgentResetToken {
 enum TripStatus {
   PENDING
   ENROUTE
+  CANCELLED
   COMPLETED
 }
-model Trip{
-  id String @unique @id @default(uuid())
-  pickupPoint String
-  Destination String
-  status TripStatus
-  startTime DateTime
-  endingTime DateTime
-  //estimatedDuration Int
-  durationTaken Int 
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  riderId String
-  rider Rider @relation(fields: [riderId], references: [id], onDelete: Cascade)
-  currentLocation String
+
+model Location{
+  id String @id @default(uuid())
+  longitude Float
+  latitude Float
+  place String?
+}
+
+// model Trip{
+//   id String @unique @id @default(uuid())
+//   pickupPoint Location @relation(fields: [pickupPointId], )
+//   pickupPointId String
+//   Destination String
+//   destinationLongitude
+//   destinationLatitude
+//   status TripStatus
+//   startTime DateTime
+//   endingTime DateTime
+//   //estimatedDuration Int
+//   durationTaken Int 
+//   userId String
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   riderId String
+//   rider Rider @relation(fields: [riderId], references: [id], onDelete: Cascade)
+//   currentLocation Location //rider location
   
 
-  @@map("trips")
-}
+//   @@map("trips")
+// }
