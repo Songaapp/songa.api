@@ -13,6 +13,172 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"90aeddaa-6be8-42f8-99f4-2c3253724742\",\r\n        \"pickupPointLat\": 4.3,\r\n        \"pickupPointLong\": 45.2,\r\n        \"destinationLat\": 54.3,\r\n        \"destinationLong\": 65.23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ride}}/request-ride",
+					"host": [
+						"{{ride}}"
+					],
+					"path": [
+						"request-ride"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept ride.",
+			"id": "81da35af-f2f7-4abd-9fb7-d0ef4252c29b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rideId\": \"802b1134-02fe-4e33-8d4a-d973cb2e5dae\",\r\n    \"riderId\": \"09b8abe7-dd25-42c6-905a-8d8a66adb418\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ride}}/accept-ride",
+					"host": [
+						"{{ride}}"
+					],
+					"path": [
+						"accept-ride"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start Ride",
+			"id": "3ebb35ba-017c-4e0f-9c60-e4f6299082f6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rideId\": \"802b1134-02fe-4e33-8d4a-d973cb2e5dae\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ride}}/start-ride",
+					"host": [
+						"{{ride}}"
+					],
+					"path": [
+						"start-ride"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel Ride",
+			"id": "a0e25359-57ce-4a65-8df5-3ee9c35bdf58",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rideId\": \"802b1134-02fe-4e33-8d4a-d973cb2e5dae\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ride}}/start-ride",
+					"host": [
+						"{{ride}}"
+					],
+					"path": [
+						"start-ride"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ride info",
+			"id": "b5b4771b-a764-472c-b8df-bb0b327a2a9b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get user rides",
+			"id": "f2e4573d-e8ce-4474-a87d-c681d6e2fd9d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get rider rides",
+			"id": "c48bf3a3-6a4d-4176-8a2e-8b8194d9c9f2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ride}}/get-rider-rides/09b8abe7-dd25-42c6-905a-8d8a66adb418",
+					"host": [
+						"{{ride}}"
+					],
+					"path": [
+						"get-rider-rides",
+						"09b8abe7-dd25-42c6-905a-8d8a66adb418"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "d6ad74fb-6e4c-499c-8773-5e9bc1752251",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
 				"method": "GET",
 				"header": []
 			},
