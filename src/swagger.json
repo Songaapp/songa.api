@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Songa App",
-    "description": "API documentation for Songa App",
+    "title": "Songa App - Proprietary API",
+    "description": "This is the  documentation for Songa Application. You can now help us improve the API whether it's by making changes to the definition itself or to the code.",
     "version": "0.0.1"
   },
   "servers": [
@@ -22,7 +22,7 @@
     },
     {
       "name": "Customer Care Agent",
-      "description": "Endpoints for customer care agents"
+      "description": "Endpoints for customer care agents."
     },
     {
       "name": "Rides",
@@ -33,27 +33,27 @@
     "/api/customer_agent": {
       "post": {
         "tags": ["Customer Care Agent"],
-        "summary": "Register a new customer care agents",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerCareAgent"
+          "summary": "Register a new customer care agent",
+           "requestBody":{
+             "content": {
+              "application/json": {
+               "schema": {
+                 "$ref": "#/components/schemas/CustomerCareAgent"
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Successful user creation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerCareAgent"
+           "200": {
+             "description": "Successful user creation",
+               "content": {
+                 "application/json": {
+                    "schema": {
+                       "$ref": "#/components/schemas/CustomerCareAgent"
+                    }
+                  }
                 }
-              }
-            }
-          },
+               },
           "400": {
             "description": "Invalid inputs"
           },
@@ -81,7 +81,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successful Operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -100,7 +100,7 @@
             }
           },
           "401": {
-            "description": "User Already exists",
+            "description": "Unauthorized",
             "content": {
               "application/json": {
                 "schema": {
@@ -152,7 +152,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Succesful Operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -195,7 +195,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "Phone number or password provided is incorrect"
+                      "example": "incorrect Phone number or Password"
                     }
                   }
                 }
@@ -254,8 +254,8 @@
       }
     },
     "/api/rides/user-get-nearby-riders/": {
-      "post": {
-        "security": [
+       "post": {
+         "security": [
           {
             "bearerAuth": []
           }
@@ -326,7 +326,7 @@
           },
           "last_name": {
             "type": "string",
-            "example": "Fukuswi"
+            "example": "Njuguna"
           },
           "phone": {
             "type": "string",
@@ -334,7 +334,7 @@
           },
           "password": {
             "type": "string",
-            "example": "Martinfukuswi"
+            "example": "Martin Njuguna"
           }
         }
       },
@@ -397,7 +397,7 @@
           },
           "password": {
             "type": "string",
-            "example": "Martinfukuswi"
+            "example": "Martincode# "
           }
         }
       },
