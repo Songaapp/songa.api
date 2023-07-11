@@ -42,7 +42,8 @@ model User {
   sessionToken String? 
   id           String    @id @default(uuid())
   OTP UserOTP?
-  Trips Trip[]
+  rides Ride[] @relation("UserRides") // Define the one-to-many relationship with the Ride model
+
 
   @@map("users")
 }
@@ -72,7 +73,7 @@ model Rider {
   updatedAt    DateTime?
   id           String    @id @default(uuid())
   profile RiderProfile?
-  Trips Trip[]
+  rides Ride[] @relation("RiderRides")
   @@map("riders")
 }
 
@@ -182,54 +183,34 @@ model CustomerCareAgentResetToken {
 
   @@map("customer_care_agent_reset_token")
 }
-//trips
-//model Trip {
-  //id
-  //customer
-  //rider
-  //pickup point
-  //destination
-  //----estimated charge
-  //starting time
-  //ending time
-  //status
-  //current location
-  //duration-calculated.
-  //total cost- songa points deducted.
-  
-//}
+
 enum TripStatus {
   PENDING
+  ASSIGNED
   ENROUTE
   CANCELLED
   COMPLETED
 }
 
-model Location{
-  id String @id @default(uuid())
-  longitude Float
-  latitude Float
-  place String?
-}
 
-// model Trip{
-//   id String @unique @id @default(uuid())
-//   pickupPoint Location @relation(fields: [pickupPointId], )
-//   pickupPointId String
-//   Destination String
-//   destinationLongitude
-//   destinationLatitude
-//   status TripStatus
-//   startTime DateTime
-//   endingTime DateTime
-//   //estimatedDuration Int
-//   durationTaken Int 
-//   userId String
-//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-//   riderId String
-//   rider Rider @relation(fields: [riderId], references: [id], onDelete: Cascade)
-//   currentLocation Location //rider location
+
+model Ride{
+  id String @unique @id @default(uuid())
+  pickupPointLat Float
+  pickupPointLong Float
+  destinationLat Float
+  destinationLong Float
+  status TripStatus
+  startTime DateTime?
+  endingTime DateTime?
+  durationTaken Int? 
+  userId String
+  user User? @relation("UserRides", fields: [userId], references: [id], onDelete: Cascade)
+  riderId String?
+  rider Rider? @relation("RiderRides", fields: [riderId], references: [id], onDelete: Cascade)
+  currentLocationLat Float?
+  currentLocationLong Float?
   
 
-//   @@map("trips")
-// }
+  @@map("rides")
+}
