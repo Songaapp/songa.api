@@ -8,7 +8,7 @@ import RiderAuthRoutes from './Riders/routes/RiderAuthRoutes';
 import mpesaRoutes from './Payments/mpesaRoutes';
 import swaggerDocument from './swagger.json';
 import UserOTPRoutes from './routes/userOTPRoutes';
-import RiderRoutes from './Ride/Routes';
+import RiderRoutes from './RideMatching/Routes';
 import RiderProfileRoutes from './Riders/routes/RiderProfileRoutes';
 
 const app: Express = express();
@@ -34,7 +34,7 @@ app.use('/api/riders/profile', RiderProfileRoutes);
 app.use('/api/points', mpesaRoutes);
 app.use('/api/users/auth/OTP', UserOTPRoutes);
 app.use('/api/customer_agent', CustomerCareAgentRoutes);
-app.use('/api/rides', RiderRoutes);
+app.use('/api/rides-matching', RiderRoutes);
 app.get('/api/', (req: Request, res: Response) => {
   res.send('test route...');
 });
