@@ -69,9 +69,12 @@ export const UserGetNearbyRides = async (req: Request, res: Response) => {
 export const UserRequestRide = (req: Request, res: Response) => {
   //pickup(coordinates) -> dropoff(coordinates)
 };
-export const RiderGetRequestedRides = (req: Request, res: Response) => {}; // websockets
-export const RiderAcceptRide = (req: Request, res: Response) => {}; //websockets
-export const UserNotifiedRide = (req: Request, res: Response) => {}; //websockets
-export const UserRiderShareLocation = (req: Request, res: Response) => {}; //websockets
-export const UserCancelRide = (req: Request, res: Response) => {}; //Rest -> driver websockets
-export const RiderCancelRide = (req: Request, res: Response) => {}; //rest -> . user via sockets
+
+export const RiderGetRequestedRides = (req: Request, res: Response) => {};// websockets
+export const RiderAcceptRide = (req: Request, res: Response) => {};//websockets
+export const UserNotifiedRide = (req: Request, res: Response) => {};//websockets
+export const UserRiderShareLocation = (req: Request, res: Response) => {};//websockets
+export const UserCancelRide = (req: Request, res: Response) => {};//Rest -> driver websockets
+export const RiderCancelRide = (req: Request, res: Response) => {};//rest -> . user via sockets
+
+

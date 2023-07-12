@@ -44,6 +44,8 @@ model User {
   longitude Float?
   id           String    @id @default(uuid())
   OTP UserOTP?
+  rides Ride[] @relation("UserRides") // Define the one-to-many relationship with the Ride model
+
 
   @@map("users")
 }
@@ -75,7 +77,8 @@ model Rider {
   longitude Float?
   online Boolean?
   id           String    @id @default(uuid())
-  profile RiderProfile?
+  profile RiderProfile?  
+  rides Ride[] @relation("RiderRides")
   @@map("riders")
 }
 
@@ -93,6 +96,8 @@ location String
 
 @@map("rider_profiles")
 }
+
+
 
 model RiderStatus {
   // todo ensure message is nullable, cca_id and status pending, should unique
@@ -201,4 +206,35 @@ model CustomerCareAgentResetToken {
   id     String            @id @default(uuid())
 
   @@map("customer_care_agent_reset_token")
+}
+
+enum TripStatus {
+  PENDING
+  ASSIGNED
+  ENROUTE
+  CANCELLED
+  COMPLETED
+}
+
+
+
+model Ride{
+  id String @unique @id @default(uuid())
+  pickupPointLat Float
+  pickupPointLong Float
+  destinationLat Float
+  destinationLong Float
+  status TripStatus
+  startTime DateTime?
+  endingTime DateTime?
+  durationTaken Int? 
+  userId String
+  user User? @relation("UserRides", fields: [userId], references: [id], onDelete: Cascade)
+  riderId String?
+  rider Rider? @relation("RiderRides", fields: [riderId], references: [id], onDelete: Cascade)
+  currentLocationLat Float?
+  currentLocationLong Float?
+  
+
+  @@map("rides")
 }
