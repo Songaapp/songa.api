@@ -40,6 +40,8 @@ model User {
   dateCreated  DateTime
   updatedAt    DateTime?
   sessionToken String? 
+  latitude  Float?
+  longitude Float?
   id           String    @id @default(uuid())
   OTP UserOTP?
   rides Ride[] @relation("UserRides") // Define the one-to-many relationship with the Ride model
@@ -71,8 +73,11 @@ model Rider {
   sessionToken String?
   dateCreated  DateTime
   updatedAt    DateTime?
+  latitude  Float?
+  longitude Float?
+  online Boolean?
   id           String    @id @default(uuid())
-  profile RiderProfile?
+  profile RiderProfile?  
   rides Ride[] @relation("RiderRides")
   @@map("riders")
 }
@@ -91,6 +96,8 @@ location String
 
 @@map("rider_profiles")
 }
+
+
 
 model RiderStatus {
   // todo ensure message is nullable, cca_id and status pending, should unique
@@ -136,6 +143,23 @@ model RiderDocuments{
   @@map("rider_documents")
 
 }
+
+//trips
+//model Trip {
+  //id
+  //customer
+  //rider
+  //pickup point
+  //destination
+  //----estimated charge
+  //starting time
+  //ending time
+  //status
+  //current location
+  //duration-calculated.
+  //total cost- songa points deducted.
+  
+//}
 model CustomerCareAgent {
   first_name    String
   last_name     String
